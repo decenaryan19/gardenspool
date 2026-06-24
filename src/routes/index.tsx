@@ -10,8 +10,11 @@ import {
   Star,
 } from "lucide-react";
 import { SiteLayout, CtaBand } from "@/components/SiteLayout";
-import heroPool from "@/assets/hero-pool.jpg";
-import poolTech from "@/assets/pool-tech.jpg";
+import heroPoolAvif from "@/assets/hero-pool.jpg?format=avif&w=1920&quality=55";
+import heroPoolWebp from "@/assets/hero-pool.jpg?format=webp&w=1920&quality=70";
+import heroPool from "@/assets/hero-pool.jpg?format=jpg&w=1920&quality=70";
+import poolTechWebp from "@/assets/pool-tech.jpg?format=webp&w=1280&quality=70";
+import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=1280&quality=70";
 
 export const Route = createFileRoute("/")({
   head: () => ({
