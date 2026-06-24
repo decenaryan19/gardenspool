@@ -10,10 +10,15 @@ import {
   Star,
 } from "lucide-react";
 import { SiteLayout, CtaBand } from "@/components/SiteLayout";
+// @ts-expect-error vite-imagetools query
 import heroPoolAvif from "@/assets/hero-pool.jpg?format=avif&w=1920&quality=55";
+// @ts-expect-error vite-imagetools query
 import heroPoolWebp from "@/assets/hero-pool.jpg?format=webp&w=1920&quality=70";
+// @ts-expect-error vite-imagetools query
 import heroPool from "@/assets/hero-pool.jpg?format=jpg&w=1920&quality=70";
+// @ts-expect-error vite-imagetools query
 import poolTechWebp from "@/assets/pool-tech.jpg?format=webp&w=1280&quality=70";
+// @ts-expect-error vite-imagetools query
 import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=1280&quality=70";
 
 export const Route = createFileRoute("/")({
