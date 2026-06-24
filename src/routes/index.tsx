@@ -10,8 +10,16 @@ import {
   Star,
 } from "lucide-react";
 import { SiteLayout, CtaBand } from "@/components/SiteLayout";
-import heroPool from "@/assets/hero-pool.jpg";
-import poolTech from "@/assets/pool-tech.jpg";
+// @ts-expect-error vite-imagetools query
+import heroPoolAvif from "@/assets/hero-pool.jpg?format=avif&w=1920&quality=55";
+// @ts-expect-error vite-imagetools query
+import heroPoolWebp from "@/assets/hero-pool.jpg?format=webp&w=1920&quality=70";
+// @ts-expect-error vite-imagetools query
+import heroPool from "@/assets/hero-pool.jpg?format=jpg&w=1920&quality=70";
+// @ts-expect-error vite-imagetools query
+import poolTechWebp from "@/assets/pool-tech.jpg?format=webp&w=1280&quality=70";
+// @ts-expect-error vite-imagetools query
+import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=1280&quality=70";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,7 +39,10 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: heroPoolAvif, type: "image/avif", fetchpriority: "high" } as never,
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -65,13 +76,19 @@ function HomePage() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroPool}
-            alt="Luxury swimming pool with palm trees in Palm Beach Gardens"
-            width={1920}
-            height={1280}
-            className="h-full w-full object-cover"
-          />
+          <picture>
+            <source srcSet={heroPoolAvif} type="image/avif" />
+            <source srcSet={heroPoolWebp} type="image/webp" />
+            <img
+              src={heroPool}
+              alt="Luxury swimming pool with palm trees in Palm Beach Gardens"
+              width={1920}
+              height={1280}
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-r from-primary-deep/85 via-primary-deep/65 to-primary-deep/20" />
         </div>
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-16 lg:pb-28 lg:pt-24">
@@ -193,14 +210,18 @@ function HomePage() {
       <section className="bg-surface">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="relative">
-            <img
-              src={poolTech}
-              alt="Gardens Pool Service technician cleaning a residential pool"
-              width={1280}
-              height={960}
-              loading="lazy"
-              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
-            />
+            <picture>
+              <source srcSet={poolTechWebp} type="image/webp" />
+              <img
+                src={poolTech}
+                alt="Gardens Pool Service technician cleaning a residential pool"
+                width={1280}
+                height={960}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
+              />
+            </picture>
             <div className="absolute -bottom-6 -right-2 hidden rounded-2xl bg-card p-5 shadow-elegant sm:block">
               <p className="font-display text-3xl font-bold text-primary-deep">24/7</p>
               <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Always Available</p>
