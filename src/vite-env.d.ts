@@ -1,14 +1,26 @@
 /// <reference types="vite/client" />
 
-declare module "*.jpg?*" {
+declare module "*&format=avif*" {
   const src: string;
   export default src;
 }
-declare module "*.png?*" {
+declare module "*&format=webp*" {
   const src: string;
   export default src;
 }
-declare module "*.jpeg?*" {
+declare module "*&format=jpg*" {
+  const src: string;
+  export default src;
+}
+declare module "*?format=avif*" {
+  const src: string;
+  export default src;
+}
+declare module "*?format=webp*" {
+  const src: string;
+  export default src;
+}
+declare module "*?format=jpg*" {
   const src: string;
   export default src;
 }
