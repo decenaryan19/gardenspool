@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { CATEGORY_LABELS, LEGACY_POSTS } from "@/lib/legacy-posts";
 import { LEGACY_TAGS } from "@/lib/legacy-tags";
 
-const BASE_URL = "";
+const BASE_URL = "https://www.gardenspoolservice.com";
 
 interface SitemapEntry {
   path: string;
