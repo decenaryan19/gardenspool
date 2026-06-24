@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { CATEGORY_LABELS, LEGACY_POSTS } from "@/lib/legacy-posts";
 
 const BASE_URL = "";
 
@@ -18,6 +19,16 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/pool-service-palm-beach-gardens/", changefreq: "monthly", priority: "0.9" },
           { path: "/about-gardens-pool-service/", changefreq: "monthly", priority: "0.7" },
           { path: "/contact-gardens-pool-service/", changefreq: "monthly", priority: "0.8" },
+          ...Object.keys(CATEGORY_LABELS).map((c) => ({
+            path: `/${c}/`,
+            changefreq: "monthly" as const,
+            priority: "0.6",
+          })),
+          ...LEGACY_POSTS.map((p) => ({
+            path: `/${p.category}/${p.slug}/`,
+            changefreq: "monthly" as const,
+            priority: "0.5",
+          })),
         ];
 
         const urls = entries
