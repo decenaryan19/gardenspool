@@ -69,7 +69,7 @@ function PostPage() {
 
       <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
         <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
-          {post.paragraphs.map((p, i) => (
+          {post.paragraphs.map((p: string, i: number) => (
             <p key={i}>{p}</p>
           ))}
         </div>
@@ -97,7 +97,7 @@ function PostPage() {
               More {label} articles
             </h2>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {related.map((r) => (
+              {related.map((r: typeof related[number]) => (
                 <Link
                   key={r.slug}
                   to="/$category/$slug"

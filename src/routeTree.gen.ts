@@ -13,7 +13,9 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PoolServicePalmBeachGardensRouteImport } from './routes/pool-service-palm-beach-gardens'
 import { Route as ContactGardensPoolServiceRouteImport } from './routes/contact-gardens-pool-service'
 import { Route as AboutGardensPoolServiceRouteImport } from './routes/about-gardens-pool-service'
+import { Route as CategoryRouteImport } from './routes/$category'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CategorySlugRouteImport } from './routes/$category.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -37,60 +39,83 @@ const AboutGardensPoolServiceRoute = AboutGardensPoolServiceRouteImport.update({
   path: '/about-gardens-pool-service',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategoryRoute = CategoryRouteImport.update({
+  id: '/$category',
+  path: '/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CategorySlugRoute = CategorySlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CategoryRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$category': typeof CategoryRouteWithChildren
   '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
   '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
   '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/$category/$slug': typeof CategorySlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$category': typeof CategoryRouteWithChildren
   '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
   '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
   '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/$category/$slug': typeof CategorySlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$category': typeof CategoryRouteWithChildren
   '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
   '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
   '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/$category/$slug': typeof CategorySlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$category'
     | '/about-gardens-pool-service'
     | '/contact-gardens-pool-service'
     | '/pool-service-palm-beach-gardens'
     | '/sitemap.xml'
+    | '/$category/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$category'
     | '/about-gardens-pool-service'
     | '/contact-gardens-pool-service'
     | '/pool-service-palm-beach-gardens'
     | '/sitemap.xml'
+    | '/$category/$slug'
   id:
     | '__root__'
     | '/'
+    | '/$category'
     | '/about-gardens-pool-service'
     | '/contact-gardens-pool-service'
     | '/pool-service-palm-beach-gardens'
     | '/sitemap.xml'
+    | '/$category/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CategoryRoute: typeof CategoryRouteWithChildren
   AboutGardensPoolServiceRoute: typeof AboutGardensPoolServiceRoute
   ContactGardensPoolServiceRoute: typeof ContactGardensPoolServiceRoute
   PoolServicePalmBeachGardensRoute: typeof PoolServicePalmBeachGardensRoute
@@ -127,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutGardensPoolServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$category': {
+      id: '/$category'
+      path: '/$category'
+      fullPath: '/$category'
+      preLoaderRoute: typeof CategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -134,11 +166,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$category/$slug': {
+      id: '/$category/$slug'
+      path: '/$slug'
+      fullPath: '/$category/$slug'
+      preLoaderRoute: typeof CategorySlugRouteImport
+      parentRoute: typeof CategoryRoute
+    }
   }
 }
 
+interface CategoryRouteChildren {
+  CategorySlugRoute: typeof CategorySlugRoute
+}
+
+const CategoryRouteChildren: CategoryRouteChildren = {
+  CategorySlugRoute: CategorySlugRoute,
+}
+
+const CategoryRouteWithChildren = CategoryRoute._addFileChildren(
+  CategoryRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CategoryRoute: CategoryRouteWithChildren,
   AboutGardensPoolServiceRoute: AboutGardensPoolServiceRoute,
   ContactGardensPoolServiceRoute: ContactGardensPoolServiceRoute,
   PoolServicePalmBeachGardensRoute: PoolServicePalmBeachGardensRoute,
