@@ -39,7 +39,10 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: heroPoolAvif, type: "image/avif", fetchpriority: "high" } as never,
+    ],
     scripts: [
       {
         type: "application/ld+json",
