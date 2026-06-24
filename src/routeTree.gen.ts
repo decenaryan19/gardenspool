@@ -9,8 +9,34 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PoolServicePalmBeachGardensRouteImport } from './routes/pool-service-palm-beach-gardens'
+import { Route as ContactGardensPoolServiceRouteImport } from './routes/contact-gardens-pool-service'
+import { Route as AboutGardensPoolServiceRouteImport } from './routes/about-gardens-pool-service'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoolServicePalmBeachGardensRoute =
+  PoolServicePalmBeachGardensRouteImport.update({
+    id: '/pool-service-palm-beach-gardens',
+    path: '/pool-service-palm-beach-gardens',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ContactGardensPoolServiceRoute =
+  ContactGardensPoolServiceRouteImport.update({
+    id: '/contact-gardens-pool-service',
+    path: '/contact-gardens-pool-service',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AboutGardensPoolServiceRoute = AboutGardensPoolServiceRouteImport.update({
+  id: '/about-gardens-pool-service',
+  path: '/about-gardens-pool-service',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +45,88 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
+  '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
+  '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
+  '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
+  '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
+  '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
+  '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-gardens-pool-service'
+    | '/contact-gardens-pool-service'
+    | '/pool-service-palm-beach-gardens'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about-gardens-pool-service'
+    | '/contact-gardens-pool-service'
+    | '/pool-service-palm-beach-gardens'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-gardens-pool-service'
+    | '/contact-gardens-pool-service'
+    | '/pool-service-palm-beach-gardens'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutGardensPoolServiceRoute: typeof AboutGardensPoolServiceRoute
+  ContactGardensPoolServiceRoute: typeof ContactGardensPoolServiceRoute
+  PoolServicePalmBeachGardensRoute: typeof PoolServicePalmBeachGardensRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pool-service-palm-beach-gardens': {
+      id: '/pool-service-palm-beach-gardens'
+      path: '/pool-service-palm-beach-gardens'
+      fullPath: '/pool-service-palm-beach-gardens'
+      preLoaderRoute: typeof PoolServicePalmBeachGardensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-gardens-pool-service': {
+      id: '/contact-gardens-pool-service'
+      path: '/contact-gardens-pool-service'
+      fullPath: '/contact-gardens-pool-service'
+      preLoaderRoute: typeof ContactGardensPoolServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-gardens-pool-service': {
+      id: '/about-gardens-pool-service'
+      path: '/about-gardens-pool-service'
+      fullPath: '/about-gardens-pool-service'
+      preLoaderRoute: typeof AboutGardensPoolServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +139,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutGardensPoolServiceRoute: AboutGardensPoolServiceRoute,
+  ContactGardensPoolServiceRoute: ContactGardensPoolServiceRoute,
+  PoolServicePalmBeachGardensRoute: PoolServicePalmBeachGardensRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
