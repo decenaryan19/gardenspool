@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PoolServicePalmBeachGardensRouteImport } from './routes/pool-service-palm-beach-gardens'
 import { Route as ContactGardensPoolServiceRouteImport } from './routes/contact-gardens-pool-service'
+import { Route as AuthorRouteImport } from './routes/author'
 import { Route as AboutGardensPoolServiceRouteImport } from './routes/about-gardens-pool-service'
 import { Route as CategoryRouteImport } from './routes/$category'
 import { Route as IndexRouteImport } from './routes/index'
@@ -36,6 +37,11 @@ const ContactGardensPoolServiceRoute =
     path: '/contact-gardens-pool-service',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AuthorRoute = AuthorRouteImport.update({
+  id: '/author',
+  path: '/author',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutGardensPoolServiceRoute = AboutGardensPoolServiceRouteImport.update({
   id: '/about-gardens-pool-service',
   path: '/about-gardens-pool-service',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$category': typeof CategoryRouteWithChildren
   '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
+  '/author': typeof AuthorRoute
   '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
   '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$category': typeof CategoryRouteWithChildren
   '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
+  '/author': typeof AuthorRoute
   '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
   '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$category': typeof CategoryRouteWithChildren
   '/about-gardens-pool-service': typeof AboutGardensPoolServiceRoute
+  '/author': typeof AuthorRoute
   '/contact-gardens-pool-service': typeof ContactGardensPoolServiceRoute
   '/pool-service-palm-beach-gardens': typeof PoolServicePalmBeachGardensRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$category'
     | '/about-gardens-pool-service'
+    | '/author'
     | '/contact-gardens-pool-service'
     | '/pool-service-palm-beach-gardens'
     | '/sitemap.xml'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$category'
     | '/about-gardens-pool-service'
+    | '/author'
     | '/contact-gardens-pool-service'
     | '/pool-service-palm-beach-gardens'
     | '/sitemap.xml'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$category'
     | '/about-gardens-pool-service'
+    | '/author'
     | '/contact-gardens-pool-service'
     | '/pool-service-palm-beach-gardens'
     | '/sitemap.xml'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CategoryRoute: typeof CategoryRouteWithChildren
   AboutGardensPoolServiceRoute: typeof AboutGardensPoolServiceRoute
+  AuthorRoute: typeof AuthorRoute
   ContactGardensPoolServiceRoute: typeof ContactGardensPoolServiceRoute
   PoolServicePalmBeachGardensRoute: typeof PoolServicePalmBeachGardensRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -169,6 +182,13 @@ declare module '@tanstack/react-router' {
       path: '/contact-gardens-pool-service'
       fullPath: '/contact-gardens-pool-service'
       preLoaderRoute: typeof ContactGardensPoolServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/author': {
+      id: '/author'
+      path: '/author'
+      fullPath: '/author'
+      preLoaderRoute: typeof AuthorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about-gardens-pool-service': {
@@ -232,6 +252,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CategoryRoute: CategoryRouteWithChildren,
   AboutGardensPoolServiceRoute: AboutGardensPoolServiceRoute,
+  AuthorRoute: AuthorRoute,
   ContactGardensPoolServiceRoute: ContactGardensPoolServiceRoute,
   PoolServicePalmBeachGardensRoute: PoolServicePalmBeachGardensRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
