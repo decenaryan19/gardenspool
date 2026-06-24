@@ -210,14 +210,18 @@ function HomePage() {
       <section className="bg-surface">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="relative">
-            <img
-              src={poolTech}
-              alt="Gardens Pool Service technician cleaning a residential pool"
-              width={1280}
-              height={960}
-              loading="lazy"
-              className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
-            />
+            <picture>
+              <source srcSet={poolTechWebp} type="image/webp" />
+              <img
+                src={poolTech}
+                alt="Gardens Pool Service technician cleaning a residential pool"
+                width={1280}
+                height={960}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
+              />
+            </picture>
             <div className="absolute -bottom-6 -right-2 hidden rounded-2xl bg-card p-5 shadow-elegant sm:block">
               <p className="font-display text-3xl font-bold text-primary-deep">24/7</p>
               <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Always Available</p>
