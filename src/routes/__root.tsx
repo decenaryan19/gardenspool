@@ -104,20 +104,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 const FONTS_HREF =
   "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap";
 
+const FONTS_HTML = `<link rel="preload" as="style" href="${FONTS_HREF}" onload="this.onload=null;this.rel='stylesheet';this.media='all'"><link rel="stylesheet" href="${FONTS_HREF}" media="print"><noscript><link rel="stylesheet" href="${FONTS_HREF}"></noscript>`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
         {/* Non-render-blocking web fonts: load as print, swap to all on load. */}
-        <link
-          rel="preload"
-          as="style"
-          href={FONTS_HREF}
-          // @ts-expect-error attribute passthrough for native onload swap
-          onload="this.onload=null;this.rel='stylesheet';this.media='all'"
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.head.insertAdjacentHTML('beforeend', ${JSON.stringify(FONTS_HTML)});`,
+          }}
         />
-        <link rel="stylesheet" href={FONTS_HREF} media="print" />
         <noscript>
           <link rel="stylesheet" href={FONTS_HREF} />
         </noscript>
