@@ -56,7 +56,7 @@ function TagPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="grid gap-5 md:grid-cols-2">
-          {posts.map((p) => (
+          {posts.map((p: typeof posts[number]) => (
             <Link
               key={`${p.category}-${p.slug}`}
               to="/$category/$slug"
