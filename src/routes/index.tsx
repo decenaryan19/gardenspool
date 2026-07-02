@@ -24,11 +24,11 @@ import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=1280&quality=70";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gardens Pool Service — Palm Beach Gardens Pool Cleaning & Maintenance" },
+      { title: "Gardens Pool Service — Palm Beach Gardens Pool Cleaning" },
       {
         name: "description",
         content:
-          "Family-owned pool service and weekly maintenance in Palm Beach Gardens, Jupiter & North Palm Beach. Call 24 hours — we show up the same day. (561) 203-1900.",
+          "Family-owned weekly pool service in Palm Beach Gardens, Jupiter & North Palm Beach. Same-day response. Call (561) 203-1900.",
       },
       { property: "og:title", content: "Gardens Pool Service — Palm Beach Gardens, FL" },
       {
@@ -193,13 +193,13 @@ function HomePage() {
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-water-gradient text-primary-foreground">
                 <Icon className="h-6 w-6" />
               </span>
-              <h3 className="mt-5 font-display text-2xl font-bold text-foreground">{title}</h3>
+              <h2 className="mt-5 font-display text-2xl font-bold text-foreground">{title}</h2>
               <p className="mt-3 flex-1 text-muted-foreground">{body}</p>
               <Link
                 to={href}
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-deep transition group-hover:gap-2.5"
               >
-                Read more <ArrowRight className="h-4 w-4" />
+                Learn more about {title} <ArrowRight className="h-4 w-4" />
               </Link>
             </article>
           ))}
