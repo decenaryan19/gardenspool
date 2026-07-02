@@ -113,7 +113,7 @@ function PoolServicePage() {
                   <Icon className="h-5 w-5" />
                 </span>
                 <div className="min-w-0">
-                  <h3 className="font-display text-lg font-bold text-foreground">{title}</h3>
+                  <h2 className="font-display text-lg font-bold text-foreground">{title}</h2>
                   <p className="mt-1 text-sm text-muted-foreground">{body}</p>
                 </div>
               </div>

@@ -31,6 +31,24 @@ export const Route = createFileRoute("/$category/$slug")({
         { property: "og:url", content: url },
       ],
       links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: desc,
+            articleSection: loaderData.label,
+            author: { "@type": "Organization", name: "Gardens Pool Service" },
+            publisher: {
+              "@type": "Organization",
+              name: "Gardens Pool Service",
+            },
+            mainEntityOfPage: url,
+          }),
+        },
+      ],
     };
   },
   component: PostPage,
@@ -108,7 +126,7 @@ function PostPage() {
                     {r.title}
                   </h3>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-deep">
-                    Read more <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                    Read: {r.title} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                   </span>
                 </Link>
               ))}
