@@ -1,0 +1,34 @@
+// Legacy WordPress tag slugs preserved for SEO continuity.
+export const LEGACY_TAGS = {
+	"chlorine": "Chlorine",
+	"cleaners": "Cleaners",
+	"cleaning-pool": "Cleaning Pool",
+	"cleaning": "Cleaning",
+	"florida-pools": "Florida Pools",
+	"home-pool": "Home Pool",
+	"juno-beach": "Juno Beach",
+	"jupiter-fl": "Jupiter, FL",
+	"jupiter-pool-cleaners": "Jupiter Pool Cleaners",
+	"jupiter-pool-company": "Jupiter Pool Company",
+	"jupiter": "Jupiter",
+	"north-palm-beach-pools": "North Palm Beach Pools",
+	"north-palm-beach": "North Palm Beach",
+	"palm-beach-gardens-fl": "Palm Beach Gardens, FL",
+	"palm-beach-gardens-pool-service": "Palm Beach Gardens Pool Service",
+	"palm-beach-gardens": "Palm Beach Gardens",
+	"pool-cleaning-service-florida": "Pool Cleaning Service Florida",
+	"pool-cleaning-service": "Pool Cleaning Service",
+	"pool-maintenance-palm-beach-gardens-fl": "Pool Maintenance Palm Beach Gardens, FL",
+	"pool-maintenance": "Pool Maintenance",
+	"pool-service-palm-beach-gardens-fl": "Pool Service Palm Beach Gardens, FL",
+	"pool-service": "Pool Service",
+	"pools-service": "Pools Service",
+	"pools": "Pools",
+	"quality": "Quality",
+	"skim-pools": "Skim Pools",
+	"south-florida-pool-service": "South Florida Pool Service",
+	"swimming-pool-home": "Swimming Pool Home",
+	"swimming-pool": "Swimming Pool"
+};
+
+//# sourceMappingURL=data:application/json;base64,eyJtYXBwaW5ncyI6IjtBQUNBLE9BQU8sTUFBTSxjQUFzQztDQUNqRCxZQUFZO0NBQ1osWUFBWTtDQUNaLGlCQUFpQjtDQUNqQixZQUFZO0NBQ1osaUJBQWlCO0NBQ2pCLGFBQWE7Q0FDYixjQUFjO0NBQ2QsY0FBYztDQUNkLHlCQUF5QjtDQUN6Qix3QkFBd0I7Q0FDeEIsV0FBVztDQUNYLDBCQUEwQjtDQUMxQixvQkFBb0I7Q0FDcEIseUJBQXlCO0NBQ3pCLG1DQUFtQztDQUNuQyxzQkFBc0I7Q0FDdEIsaUNBQWlDO0NBQ2pDLHlCQUF5QjtDQUN6QiwwQ0FBMEM7Q0FDMUMsb0JBQW9CO0NBQ3BCLHNDQUFzQztDQUN0QyxnQkFBZ0I7Q0FDaEIsaUJBQWlCO0NBQ2pCLFNBQVM7Q0FDVCxXQUFXO0NBQ1gsY0FBYztDQUNkLDhCQUE4QjtDQUM5QixzQkFBc0I7Q0FDdEIsaUJBQWlCO0FBQ25CIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbImxlZ2FjeS10YWdzLnRzIl0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbIi8vIExlZ2FjeSBXb3JkUHJlc3MgdGFnIHNsdWdzIHByZXNlcnZlZCBmb3IgU0VPIGNvbnRpbnVpdHkuXG5leHBvcnQgY29uc3QgTEVHQUNZX1RBR1M6IFJlY29yZDxzdHJpbmcsIHN0cmluZz4gPSB7XG4gIFwiY2hsb3JpbmVcIjogXCJDaGxvcmluZVwiLFxuICBcImNsZWFuZXJzXCI6IFwiQ2xlYW5lcnNcIixcbiAgXCJjbGVhbmluZy1wb29sXCI6IFwiQ2xlYW5pbmcgUG9vbFwiLFxuICBcImNsZWFuaW5nXCI6IFwiQ2xlYW5pbmdcIixcbiAgXCJmbG9yaWRhLXBvb2xzXCI6IFwiRmxvcmlkYSBQb29sc1wiLFxuICBcImhvbWUtcG9vbFwiOiBcIkhvbWUgUG9vbFwiLFxuICBcImp1bm8tYmVhY2hcIjogXCJKdW5vIEJlYWNoXCIsXG4gIFwianVwaXRlci1mbFwiOiBcIkp1cGl0ZXIsIEZMXCIsXG4gIFwianVwaXRlci1wb29sLWNsZWFuZXJzXCI6IFwiSnVwaXRlciBQb29sIENsZWFuZXJzXCIsXG4gIFwianVwaXRlci1wb29sLWNvbXBhbnlcIjogXCJKdXBpdGVyIFBvb2wgQ29tcGFueVwiLFxuICBcImp1cGl0ZXJcIjogXCJKdXBpdGVyXCIsXG4gIFwibm9ydGgtcGFsbS1iZWFjaC1wb29sc1wiOiBcIk5vcnRoIFBhbG0gQmVhY2ggUG9vbHNcIixcbiAgXCJub3J0aC1wYWxtLWJlYWNoXCI6IFwiTm9ydGggUGFsbSBCZWFjaFwiLFxuICBcInBhbG0tYmVhY2gtZ2FyZGVucy1mbFwiOiBcIlBhbG0gQmVhY2ggR2FyZGVucywgRkxcIixcbiAgXCJwYWxtLWJlYWNoLWdhcmRlbnMtcG9vbC1zZXJ2aWNlXCI6IFwiUGFsbSBCZWFjaCBHYXJkZW5zIFBvb2wgU2VydmljZVwiLFxuICBcInBhbG0tYmVhY2gtZ2FyZGVuc1wiOiBcIlBhbG0gQmVhY2ggR2FyZGVuc1wiLFxuICBcInBvb2wtY2xlYW5pbmctc2VydmljZS1mbG9yaWRhXCI6IFwiUG9vbCBDbGVhbmluZyBTZXJ2aWNlIEZsb3JpZGFcIixcbiAgXCJwb29sLWNsZWFuaW5nLXNlcnZpY2VcIjogXCJQb29sIENsZWFuaW5nIFNlcnZpY2VcIixcbiAgXCJwb29sLW1haW50ZW5hbmNlLXBhbG0tYmVhY2gtZ2FyZGVucy1mbFwiOiBcIlBvb2wgTWFpbnRlbmFuY2UgUGFsbSBCZWFjaCBHYXJkZW5zLCBGTFwiLFxuICBcInBvb2wtbWFpbnRlbmFuY2VcIjogXCJQb29sIE1haW50ZW5hbmNlXCIsXG4gIFwicG9vbC1zZXJ2aWNlLXBhbG0tYmVhY2gtZ2FyZGVucy1mbFwiOiBcIlBvb2wgU2VydmljZSBQYWxtIEJlYWNoIEdhcmRlbnMsIEZMXCIsXG4gIFwicG9vbC1zZXJ2aWNlXCI6IFwiUG9vbCBTZXJ2aWNlXCIsXG4gIFwicG9vbHMtc2VydmljZVwiOiBcIlBvb2xzIFNlcnZpY2VcIixcbiAgXCJwb29sc1wiOiBcIlBvb2xzXCIsXG4gIFwicXVhbGl0eVwiOiBcIlF1YWxpdHlcIixcbiAgXCJza2ltLXBvb2xzXCI6IFwiU2tpbSBQb29sc1wiLFxuICBcInNvdXRoLWZsb3JpZGEtcG9vbC1zZXJ2aWNlXCI6IFwiU291dGggRmxvcmlkYSBQb29sIFNlcnZpY2VcIixcbiAgXCJzd2ltbWluZy1wb29sLWhvbWVcIjogXCJTd2ltbWluZyBQb29sIEhvbWVcIixcbiAgXCJzd2ltbWluZy1wb29sXCI6IFwiU3dpbW1pbmcgUG9vbFwiLFxufTtcbiJdfQ==
