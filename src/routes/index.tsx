@@ -17,9 +17,10 @@ import heroPoolWebp from "@/assets/hero-pool.jpg?format=webp&w=1920&quality=70";
 // @ts-expect-error vite-imagetools query
 import heroPool from "@/assets/hero-pool.jpg?format=jpg&w=1920&quality=70";
 // @ts-expect-error vite-imagetools query
-import poolTechWebp from "@/assets/pool-tech.jpg?format=webp&w=1280&quality=70";
+import poolTechWebp from "@/assets/pool-tech.jpg?format=webp&w=800&quality=68";
 // @ts-expect-error vite-imagetools query
-import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=1280&quality=70";
+import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=800&quality=70";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -219,8 +220,9 @@ function HomePage() {
               <img
                 src={poolTech}
                 alt="Gardens Pool Service technician cleaning a residential pool"
-                width={1280}
-                height={960}
+                width={800}
+                height={600}
+
                 loading="lazy"
                 decoding="async"
                 className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
