@@ -37,12 +37,16 @@ export const Route = createFileRoute("/")({
           "Trusted weekly pool service and maintenance in Palm Beach Gardens, FL. Same-day service. Call (561) 203-1900.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://gardenspool.lovable.app/" },
+      { property: "og:image", content: "https://gardenspool.lovable.app/og-image.jpg" },
+      { name: "twitter:title", content: "Gardens Pool Service — Palm Beach Gardens, FL" },
+      { name: "twitter:description", content: "Trusted weekly pool service in Palm Beach Gardens, FL. Same-day service. Call (561) 203-1900." },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: "https://gardenspool.lovable.app/" },
       { rel: "preload", as: "image", href: heroPoolAvif, type: "image/avif", fetchpriority: "high" } as never,
     ],
+
     scripts: [
       {
         type: "application/ld+json",
