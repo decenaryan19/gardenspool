@@ -220,8 +220,9 @@ function HomePage() {
               <img
                 src={poolTech}
                 alt="Gardens Pool Service technician cleaning a residential pool"
-                width={1280}
-                height={960}
+                width={800}
+                height={600}
+
                 loading="lazy"
                 decoding="async"
                 className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"
