@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.gardenspoolservice.com/sitemap.xml
+Sitemap: https://gardenspool.lovable.app/sitemap.xml
