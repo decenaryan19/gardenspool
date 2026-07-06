@@ -56,8 +56,7 @@ export function SiteFooter() {
           <p>#1 Pool Service Company in Palm Beach Gardens</p>
         </div>
       </div>
-
-      </div>
     </footer>
   );
 }
+
