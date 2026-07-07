@@ -12,46 +12,46 @@ export function SiteFooter() {
             </span>
             <span className="font-display text-xl font-bold">Gardens Pool Service</span>
           </div>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white">
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
             Family owned and operated. Reliable weekly pool service and maintenance
             throughout Palm Beach Gardens, Jupiter and North Palm Beach.
           </p>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
             Explore
           </h3>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><Link to="/" className="text-white hover:underline">Home</Link></li>
-            <li><Link to="/pool-service-palm-beach-gardens" className="text-white hover:underline">Pool Service</Link></li>
-            <li><Link to="/about-gardens-pool-service" className="text-white hover:underline">About Us</Link></li>
-            <li><Link to="/contact-gardens-pool-service" className="text-white hover:underline">Contact Us</Link></li>
+            <li><Link to="/" className="text-white/90 hover:text-white">Home</Link></li>
+            <li><Link to="/pool-service-palm-beach-gardens" className="text-white/90 hover:text-white">Pool Service</Link></li>
+            <li><Link to="/about-gardens-pool-service" className="text-white/90 hover:text-white">About Us</Link></li>
+            <li><Link to="/contact-gardens-pool-service" className="text-white/90 hover:text-white">Contact Us</Link></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
             Get in touch
           </h3>
-          <ul className="mt-4 space-y-3 text-sm text-white">
+          <ul className="mt-4 space-y-3 text-sm text-white/90">
             <li className="flex items-start gap-3">
-              <Phone className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-              <a href="tel:+15612031900" className="hover:underline">(561) 203-1900</a>
+              <Phone className="mt-0.5 h-4 w-4 shrink-0" />
+              <a href="tel:+15612031900" className="hover:text-white">(561) 203-1900</a>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
               <span>4210 Randolph Way, Palm Beach Gardens, FL 33410</span>
             </li>
             <li className="flex items-start gap-3">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              <Clock className="mt-0.5 h-4 w-4 shrink-0" />
               <span>Available 24 hours — same-day service</span>
             </li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/20">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-4 py-6 text-xs text-white sm:flex-row sm:items-center sm:px-6">
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-4 py-6 text-xs text-white/75 sm:flex-row sm:items-center sm:px-6">
           <p>© {new Date().getFullYear()} Gardens Pool Service — Palm Beach Gardens, FL</p>
           <p>#1 Pool Service Company in Palm Beach Gardens</p>
         </div>
@@ -59,4 +59,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-

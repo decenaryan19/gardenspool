@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SITE_URL } from "../lib/site-url";
 
 function NotFoundComponent() {
   return (
@@ -84,9 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preload", href: appCss, as: "style" },
     ],
     scripts: [
       {
@@ -95,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Gardens Pool Service",
-          url: "https://gardenspool.lovable.app",
+          url: SITE_URL,
           telephone: "+1-561-203-1900",
           address: {
             "@type": "PostalAddress",
@@ -113,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Gardens Pool Service",
-          url: "https://gardenspool.lovable.app",
+          url: SITE_URL,
         }),
       },
     ],
@@ -124,25 +123,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-const FONTS_HREF =
-  "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap";
-
-const FONTS_HTML = `<link rel="preload" as="style" href="${FONTS_HREF}" onload="this.onload=null;this.rel='stylesheet';this.media='all'"><link rel="stylesheet" href="${FONTS_HREF}" media="print"><noscript><link rel="stylesheet" href="${FONTS_HREF}"></noscript>`;
+const ASYNC_CSS_HTML = [
+  `<link rel="stylesheet" href="${appCss}" media="print" onload="this.media='all'">`,
+  `<noscript><link rel="stylesheet" href="${appCss}"></noscript>`,
+].join("");
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Non-render-blocking web fonts: load as print, swap to all on load. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.head.insertAdjacentHTML('beforeend', ${JSON.stringify(FONTS_HTML)});`,
+            __html: `document.head.insertAdjacentHTML('beforeend', ${JSON.stringify(ASYNC_CSS_HTML)});`,
           }}
         />
-        <noscript>
-          <link rel="stylesheet" href={FONTS_HREF} />
-        </noscript>
       </head>
       <body>
         {children}

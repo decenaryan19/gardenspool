@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://gardenspool.lovable.app/sitemap.xml

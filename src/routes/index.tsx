@@ -10,17 +10,33 @@ import {
   Star,
 } from "lucide-react";
 import { SiteLayout, CtaBand } from "@/components/SiteLayout";
+import { absoluteUrl } from "@/lib/site-url";
 // @ts-expect-error vite-imagetools query
-import heroPoolAvif from "@/assets/hero-pool.jpg?format=avif&w=1920&quality=55";
+import heroPoolAvif640 from "@/assets/hero-pool.jpg?format=avif&w=640&quality=55";
 // @ts-expect-error vite-imagetools query
-import heroPoolWebp from "@/assets/hero-pool.jpg?format=webp&w=1920&quality=70";
+import heroPoolAvif960 from "@/assets/hero-pool.jpg?format=avif&w=960&quality=55";
 // @ts-expect-error vite-imagetools query
-import heroPool from "@/assets/hero-pool.jpg?format=jpg&w=1920&quality=70";
+import heroPoolAvif1280 from "@/assets/hero-pool.jpg?format=avif&w=1280&quality=55";
 // @ts-expect-error vite-imagetools query
-import poolTechWebp from "@/assets/pool-tech.jpg?format=webp&w=800&quality=68";
+import heroPoolAvif from "@/assets/hero-pool.jpg?format=avif&w=1600&quality=55";
+// @ts-expect-error vite-imagetools query
+import heroPoolWebp960 from "@/assets/hero-pool.jpg?format=webp&w=960&quality=70";
+// @ts-expect-error vite-imagetools query
+import heroPoolWebp1280 from "@/assets/hero-pool.jpg?format=webp&w=1280&quality=70";
+// @ts-expect-error vite-imagetools query
+import heroPoolWebp from "@/assets/hero-pool.jpg?format=webp&w=1600&quality=70";
+// @ts-expect-error vite-imagetools query
+import heroPool from "@/assets/hero-pool.jpg?format=jpg&w=1280&quality=70";
+// @ts-expect-error vite-imagetools query
+import poolTechWebp640 from "@/assets/pool-tech.jpg?format=webp&w=640&quality=70";
+// @ts-expect-error vite-imagetools query
+import poolTechWebp960 from "@/assets/pool-tech.jpg?format=webp&w=960&quality=70";
 // @ts-expect-error vite-imagetools query
 import poolTech from "@/assets/pool-tech.jpg?format=jpg&w=800&quality=70";
 
+const heroAvifSrcSet = `${heroPoolAvif640} 640w, ${heroPoolAvif960} 960w, ${heroPoolAvif1280} 1280w, ${heroPoolAvif} 1600w`;
+const heroWebpSrcSet = `${heroPoolWebp960} 960w, ${heroPoolWebp1280} 1280w, ${heroPoolWebp} 1600w`;
+const poolTechSrcSet = `${poolTechWebp640} 640w, ${poolTechWebp960} 960w`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,16 +54,12 @@ export const Route = createFileRoute("/")({
           "Trusted weekly pool service and maintenance in Palm Beach Gardens, FL. Same-day service. Call (561) 203-1900.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://gardenspool.lovable.app/" },
-      { property: "og:image", content: "https://gardenspool.lovable.app/og-image.jpg" },
-      { name: "twitter:title", content: "Gardens Pool Service — Palm Beach Gardens, FL" },
-      { name: "twitter:description", content: "Trusted weekly pool service in Palm Beach Gardens, FL. Same-day service. Call (561) 203-1900." },
+      { property: "og:url", content: absoluteUrl("/") },
     ],
     links: [
-      { rel: "canonical", href: "https://gardenspool.lovable.app/" },
-      { rel: "preload", as: "image", href: heroPoolAvif, type: "image/avif", fetchpriority: "high" } as never,
+      { rel: "canonical", href: absoluteUrl("/") },
+      { rel: "preload", as: "image", href: heroPoolAvif1280, type: "image/avif", fetchpriority: "high" } as never,
     ],
-
     scripts: [
       {
         type: "application/ld+json",
@@ -55,7 +67,8 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Gardens Pool Service",
-          image: "/og-image.jpg",
+          image: absoluteUrl("/og-image.jpg"),
+          url: absoluteUrl("/"),
           telephone: "+1-561-203-1900",
           priceRange: "$$",
           address: {
@@ -82,13 +95,13 @@ function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <picture>
-            <source srcSet={heroPoolAvif} type="image/avif" />
-            <source srcSet={heroPoolWebp} type="image/webp" />
+            <source srcSet={heroAvifSrcSet} sizes="100vw" type="image/avif" />
+            <source srcSet={heroWebpSrcSet} sizes="100vw" type="image/webp" />
             <img
               src={heroPool}
               alt="Luxury swimming pool with palm trees in Palm Beach Gardens"
-              width={1920}
-              height={1280}
+              width={1280}
+              height={853}
               fetchPriority="high"
               decoding="async"
               className="h-full w-full object-cover"
@@ -139,12 +152,12 @@ function HomePage() {
 
           <div className="hidden lg:block">
             <div className="relative rounded-3xl border border-white/20 bg-white/10 p-6 text-primary-foreground backdrop-blur-xl shadow-elegant">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
                 Free Quote
               </p>
-              <h3 className="mt-2 font-display text-2xl font-bold">
+              <h2 className="mt-2 font-display text-2xl font-bold">
                 Talk to a real person — right now.
-              </h3>
+              </h2>
               <p className="mt-3 text-sm text-white/80">
                 No forms, no waiting. Skip the back-and-forth and get straight answers
                 from our local team.
@@ -216,13 +229,12 @@ function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="relative">
             <picture>
-              <source srcSet={poolTechWebp} type="image/webp" />
+              <source srcSet={poolTechSrcSet} sizes="(max-width: 1024px) 100vw, 50vw" type="image/webp" />
               <img
                 src={poolTech}
                 alt="Gardens Pool Service technician cleaning a residential pool"
                 width={800}
                 height={600}
-
                 loading="lazy"
                 decoding="async"
                 className="aspect-[4/3] w-full rounded-3xl object-cover shadow-elegant"

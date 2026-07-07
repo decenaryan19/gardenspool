@@ -1,0 +1,15 @@
+import { QueryClient } from "/node_modules/.vite/deps/@tanstack_react-query.js?v=dff30551";
+import { createRouter } from "/node_modules/@tanstack/react-router/dist/esm/index.dev.js?v=7a96e4a1";
+import { routeTree } from "/src/routeTree.gen.ts?t=1783351026820";
+export const getRouter = () => {
+	const queryClient = new QueryClient();
+	const router = createRouter({
+		routeTree,
+		context: { queryClient },
+		scrollRestoration: true,
+		defaultPreloadStaleTime: 0
+	});
+	return router;
+};
+
+//# sourceMappingURL=data:application/json;base64,eyJtYXBwaW5ncyI6IkFBQUEsU0FBUyxtQkFBbUI7QUFDNUIsU0FBUyxvQkFBb0I7QUFDN0IsU0FBUyxpQkFBaUI7QUFFMUIsT0FBTyxNQUFNLGtCQUFrQjtDQUM3QixNQUFNLGNBQWMsSUFBSSxZQUFZO0NBRXBDLE1BQU0sU0FBUyxhQUFhO0VBQzFCO0VBQ0EsU0FBUyxFQUFFLFlBQVk7RUFDdkIsbUJBQW1CO0VBQ25CLHlCQUF5QjtDQUMzQixDQUFDO0NBRUQsT0FBTztBQUNUIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbInJvdXRlci50c3giXSwidmVyc2lvbiI6Mywic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUXVlcnlDbGllbnQgfSBmcm9tIFwiQHRhbnN0YWNrL3JlYWN0LXF1ZXJ5XCI7XG5pbXBvcnQgeyBjcmVhdGVSb3V0ZXIgfSBmcm9tIFwiQHRhbnN0YWNrL3JlYWN0LXJvdXRlclwiO1xuaW1wb3J0IHsgcm91dGVUcmVlIH0gZnJvbSBcIi4vcm91dGVUcmVlLmdlblwiO1xuXG5leHBvcnQgY29uc3QgZ2V0Um91dGVyID0gKCkgPT4ge1xuICBjb25zdCBxdWVyeUNsaWVudCA9IG5ldyBRdWVyeUNsaWVudCgpO1xuXG4gIGNvbnN0IHJvdXRlciA9IGNyZWF0ZVJvdXRlcih7XG4gICAgcm91dGVUcmVlLFxuICAgIGNvbnRleHQ6IHsgcXVlcnlDbGllbnQgfSxcbiAgICBzY3JvbGxSZXN0b3JhdGlvbjogdHJ1ZSxcbiAgICBkZWZhdWx0UHJlbG9hZFN0YWxlVGltZTogMCxcbiAgfSk7XG5cbiAgcmV0dXJuIHJvdXRlcjtcbn07XG4iXX0=
